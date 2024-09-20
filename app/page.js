@@ -15,6 +15,9 @@ import Page12 from "./_components/Page12";
 import Final from "./_components/Final";
 import { useEffect, useState } from "react";
 import LoadingPage from "./_components/LoadingPage";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -22,9 +25,12 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
+      ScrollTrigger.refresh();
     }, 7500);
     // Cleanup the timeout on component unmount
-    return () => clearTimeout(timer);
+    return () => 
+      clearTimeout(timer);
+
   }, []);
 
   return (
@@ -43,9 +49,9 @@ export default function Home() {
           <Page4 />
           <Page3 />
           <Page5 />
-          // <Page6 />
+          <Page6 />
           <Page9 />
-          // <Page11 />
+          <Page11 />
           <Page10 />
           <Page12 />
           <Final />
