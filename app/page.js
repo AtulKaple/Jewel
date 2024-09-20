@@ -43,9 +43,9 @@ export default function Home() {
           <Page4 />
           <Page3 />
           <Page5 />
-          <Page6 />
+          // <Page6 />
           <Page9 />
-          <Page11 />
+          // <Page11 />
           <Page10 />
           <Page12 />
           <Final />
