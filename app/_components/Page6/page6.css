@@ -1,0 +1,8 @@
+.o2{
+    -webkit-text-stroke: 1px #adadad;
+    color: transparent;
+}
+
+h1::-webkit-scrollbar{
+    display: none;
+}
