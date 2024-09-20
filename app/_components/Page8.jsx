@@ -23,7 +23,7 @@ const Page8 = () => {
         var tl = gsap.timeline({
           scrollTrigger: {
             trigger: ".home",
-            start: "50% 0%",
+            start: "top -40%",
             markers: true,
             scrub: 1,
             pin: true,
