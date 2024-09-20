@@ -24,6 +24,7 @@ const Page8 = () => {
           scrollTrigger: {
             trigger: ".home",
             start: "top top",
+            markers: true,
             scrub: 1,
             pin: true,
             end: "bottom -250%",
