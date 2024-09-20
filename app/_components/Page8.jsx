@@ -1,11 +1,23 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Page8 = () => {
+  useEffect(() => {
+  const resizeHandler = () => {
+    ScrollTrigger.refresh(); // Refresh ScrollTrigger when the window resizes
+  };
+
+  window.addEventListener("resize", resizeHandler);
+
+  return () => {
+    window.removeEventListener("resize", resizeHandler);
+  };
+}, []);
+  
   useGSAP(() => {
     let mm = gsap.matchMedia();
 
@@ -26,7 +38,13 @@ const Page8 = () => {
             start: "top top",
             scrub: 1,
             pin: true,
-            end: "bottom -250%",
+            pinSpacing: false, // Disable pinSpacing if needed
+    end: "bottom -250%",
+    invalidateOnRefresh: true, // Invalidate the timeline on refresh
+    anticipatePin: 1, // Debounce the pin action
+            onUpdate: (self) => {
+    console.log("Progress:", self.progress, "Direction:", self.direction);
+  },
           },
         });
 
