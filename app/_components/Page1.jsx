@@ -57,7 +57,7 @@ const Page1 = () => {
       <h2 className="navh2 text-[7vw] lg:text-[3vw] absolute left-[8%] lg:left-[28%] top-[76%] lg:top-[66%] w-[80%] lg:w-[30%] font-light leading-10 ">
         {" "}
         &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Experience the luxury
-        of fine jewelry.
+        of fine jewellry.
       </h2>
       <h3 className="navh3 text-[7vw] lg:text-[3vw] absolute left-[49%] lg:left-[77%] top-[53%] lg:top-[50%] w-[55%] lg:w-[25%] text-white font-semibold z-50 font-g cursor-pp ">
         Unveil the sparkle within..
