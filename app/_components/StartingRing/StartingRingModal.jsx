@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function StartingRingModal(props) {
-  const { nodes, materials } = useGLTF('/ringring.glb')
+  const { nodes, materials } = useGLTF('./ringring.glb')
  
   return (
     <group {...props} dispose={null}>
@@ -58,4 +58,4 @@ export function StartingRingModal(props) {
   )
 }
 
-useGLTF.preload('/ringring.glb')
+useGLTF.preload('./ringring.glb')
