@@ -35,7 +35,7 @@ export default function Home() {
           <div className=" text-[#52322B] bg-[radial-gradient(circle_at_50%_50%,_#fbcbc9,_#f6c5c4,_#f0bfbf,_#ebb9ba,_#e5b3b6,_#e0adb1,_#daa7ac,_#d5a2a8,_#cf9ca3,_#ca969f,_#c4919a,_#bf8b96)] min-h-[100vh] w-full relative z-0 "></div>
         </div>
       ) : (
-        <main className=" main relative text-[#52322B] w-full overflow-x-hidden ">
+        <main className=" main relative text-[#52322B] w-full  ">
           <Nav />
           <Page1 />
           <Page2 />
