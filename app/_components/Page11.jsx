@@ -11,13 +11,33 @@ const Page11 = () => {
       start: "top 30%",
       end: "bottom -100%",
       onEnter: () =>
-        gsap.to(".test", { background: "#A67B5B", duration: 1, color: "#fff" }),
+        gsap.to(".test", {
+          backgroundColor: "#FCF9EA",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onLeave: () =>
-        gsap.to(".test", { background: "#81A263", duration: 1, color: "#000" }),
+        gsap.to(".test", {
+          backgroundColor: "#B21337",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onLeaveBack: () =>
-        gsap.to(".test", { background: "#fff", duration: 1, color: "#000" }),
+        gsap.to(".test", {
+          backgroundColor: "#ffffff",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onEnterBack: () =>
-        gsap.to(".test", { background: "#A67B5B", duration: 1, color: "#fff" }),
+        gsap.to(".test", {
+          backgroundColor: "#FCF9EA",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
     });
 
     var tl = gsap.timeline({
@@ -148,7 +168,7 @@ const Page11 = () => {
           </div>
         </div>
       </div>
-      <div className="down h-[30%] text-center w-full absolute bottom-0 font-play text-[10vw] lg:text-[5vw] z-50 flex items-center justify-center border-b border-b-black ">
+      <div className="down h-[30%] text-center w-full absolute bottom-0 font-play text-[10vw] lg:text-[5vw] z-50 flex items-center justify-center border-b border-b-black text-black ">
         <h1 className="">OUR HAPPY CUSTOMERS</h1>
       </div>
     </div>

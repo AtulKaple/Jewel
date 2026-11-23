@@ -14,12 +14,34 @@ const Page3 = () => {
       trigger: ".page3",
       start: "top 50%",
       end: "bottom 50%",
-      onEnter: () => gsap.to(".page3", { background: "#CBCDCE", duration: 1 }),
-      onLeave: () => gsap.to(".page3", { background: "#ED9B7C", duration: 1 }),
+      onEnter: () =>
+        gsap.to(".page3", {
+          backgroundColor: "#CBCDCE",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
+      onLeave: () =>
+        gsap.to(".page3", {
+          backgroundColor: "#ED9B7C",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onLeaveBack: () =>
-        gsap.to(".page3", { background: "#9E9E9C", duration: 1 }),
+        gsap.to(".page3", {
+          backgroundColor: "#9E9E9C",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onEnterBack: () =>
-        gsap.to(".page3", { background: "#CBCDCE", duration: 1 }),
+        gsap.to(".page3", {
+          backgroundColor: "#CBCDCE",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
     });
   });
 

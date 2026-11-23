@@ -1,43 +1,78 @@
 "use client";
 import React from "react";
+import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Cover from "./Cover/Cover";
-import FinalRing from "./FinalRing/FinalRing";
+
+const Cover = dynamic(() => import("./Cover/Cover"), { ssr: false });
+const FinalRing = dynamic(() => import("./FinalRing/FinalRing"), {
+  ssr: false,
+});
 gsap.registerPlugin(ScrollTrigger);
 
 const Page9 = () => {
   useGSAP(() => {
     ScrollTrigger.create({
       trigger: ".stop",
+      pinnedContainer: ".second",
       start: "top 60%",
       end: "bottom 50%",
-      onEnter: () => gsap.to(".stop", { background: "#E49BFF", duration: 1 }),
+      onEnter: () =>
+        gsap.to(".stop", {
+          backgroundColor: "#E49BFF",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onLeaveBack: () =>
-        gsap.to(".stop", { background: "#ED9B7C", duration: 1 }),
+        gsap.to(".stop", {
+          backgroundColor: "#ED9B7C",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onEnterBack: () =>
-        gsap.to(".stop", { background: "#E49BFF", duration: 1 }),
+        gsap.to(".stop", {
+          backgroundColor: "#E49BFF",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
     });
 
     ScrollTrigger.create({
       trigger: ".sbottom",
+      pinnedContainer: ".second",
       start: "top 60%",
       end: "bottom -220%",
-      onEnter: () => gsap.to(".sbottom", { background: "#fff", duration: 1 }),
+      onEnter: () =>
+        gsap.to(".sbottom", {
+          backgroundColor: "#ffffff",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onLeave: () =>
         gsap.to(".sbottom", {
-          background: "#A67B5B",
-          duration: 1,
-          color: "#fff",
+          backgroundColor: "#FCF9EA",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
         }),
       onLeaveBack: () =>
-        gsap.to(".sbottom", { background: "#fff", duration: 1 }),
+        gsap.to(".sbottom", {
+          backgroundColor: "#ffffff",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onEnterBack: () =>
         gsap.to(".sbottom", {
-          background: "#fff",
-          duration: 1,
-          color: "#52322B",
+          backgroundColor: "#ffffff",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
         }),
     });
 
@@ -77,7 +112,7 @@ const Page9 = () => {
               right: isDesktop ? "42.9%" : "30%",
               ease: "none",
             },
-            "same"
+            "same",
           )
           .to(
             ".cl2",
@@ -86,7 +121,7 @@ const Page9 = () => {
               stagger: 0.1,
               ease: "none",
             },
-            "same"
+            "same",
           )
           .to(
             ".cl2",
@@ -96,7 +131,7 @@ const Page9 = () => {
               stagger: 0.1,
               ease: "none",
             },
-            "a"
+            "a",
           )
 
           .to(
@@ -105,7 +140,7 @@ const Page9 = () => {
               scale: 0,
               ease: "none",
             },
-            "a"
+            "a",
           )
           .to(
             ".sh1",
@@ -116,7 +151,7 @@ const Page9 = () => {
               duration: isDesktop ? 3 : 3,
               ease: "none",
             },
-            "a"
+            "a",
           )
           .to(
             ".final",
@@ -125,7 +160,7 @@ const Page9 = () => {
               duration: 1,
               ease: "none",
             },
-            "a"
+            "a",
           )
           .to(
             ".sbottom2",
@@ -134,7 +169,7 @@ const Page9 = () => {
               duration: isDesktop ? 2 : 1,
               ease: "none",
             },
-            "a"
+            "a",
           )
           .to(
             ".sbottom1",
@@ -144,9 +179,9 @@ const Page9 = () => {
               delay: isDesktop ? 2 : 1,
               ease: "none",
             },
-            "a"
+            "a",
           );
-      }
+      },
     );
   });
 
@@ -175,7 +210,7 @@ const Page9 = () => {
             />
           </div>
         </div>
-        <div className="sbottom w-full relative h-[30%] border border-solid border-black flex items-center justify-center  ">
+        <div className="sbottom w-full relative h-[30%] border border-solid border-black flex items-center justify-center text-black ">
           <p className=" sbottom1 absolute top-[16vw] lg:top-auto lg:text-[3vw] w-[55%] lg:w-[55%] text-[5.5vw] text-center leading-none opacity-0 ">
             Unleash your inner{" "}
             <span className=" font-g text-[12vw] lg:text-[6vw] text-[#E49BFF] ">

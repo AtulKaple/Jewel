@@ -19,17 +19,26 @@ const Page4 = () => {
       end: "bottom 50%",
       onLeave: () =>
         gsap.to(".page4", {
-          background: "#CBCDCE",
-          duration: 1,
+          backgroundColor: "#CBCDCE",
           color: "#52322B",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
         }),
       onLeaveBack: () =>
-        gsap.to(".page4", { background: "#9E9E9C", duration: 1 }),
+        gsap.to(".page4", {
+          backgroundColor: "#9E9E9C",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onEnterBack: () =>
         gsap.to(".page4", {
-          background: "#9E9E9C",
-          duration: 1,
+          backgroundColor: "#9E9E9C",
           color: "white",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
         }),
     });
 
@@ -41,7 +50,6 @@ const Page4 = () => {
         opacity: 0,
         scrollTrigger: {
           trigger: ".pg4h1",
-          scroller: "body",
           start: "top 90%",
           end: "top 40%",
           scrub: 3,
@@ -57,7 +65,6 @@ const Page4 = () => {
         opacity: 0,
         scrollTrigger: {
           trigger: ".pg4h1",
-          scroller: "body",
           start: "top 90%",
           end: "top 40%",
           scrub: 3,

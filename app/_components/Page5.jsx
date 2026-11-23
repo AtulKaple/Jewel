@@ -10,11 +10,27 @@ const Page5 = () => {
       trigger: ".pg5-el",
       start: "top 50%",
       end: "bottom 50%",
-      onEnter: () => gsap.to(".pg5-el", { background: "#ED9B7C", duration: 1 }),
+      onEnter: () =>
+        gsap.to(".pg5-el", {
+          backgroundColor: "#ED9B7C",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onLeaveBack: () =>
-        gsap.to(".pg5-el", { background: "#CBCDCE", duration: 1 }),
+        gsap.to(".pg5-el", {
+          backgroundColor: "#CBCDCE",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onEnterBack: () =>
-        gsap.to(".pg5-el", { background: "#ED9B7C", duration: 1 }),
+        gsap.to(".pg5-el", {
+          backgroundColor: "#ED9B7C",
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
     });
     gsap.from(".forever , .forinfo", {
       y: 100,
@@ -22,7 +38,6 @@ const Page5 = () => {
       duration: 1,
       scrollTrigger: {
         trigger: ".forever",
-        scroller: "body",
         start: "top 70%",
         end: "top 50%",
         scrub: 3,

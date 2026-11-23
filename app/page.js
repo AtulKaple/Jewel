@@ -6,7 +6,7 @@ import Page3 from "./_components/Page3";
 import Page4 from "./_components/Page4";
 import Page5 from "./_components/Page5";
 import Page6 from "./_components/Page6/Page6";
-import { ReactLenis } from "@studio-freight/react-lenis";
+import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 import Page8 from "./_components/Page8";
 import Page9 from "./_components/Page9";
 import Page10 from "./_components/Page10";
@@ -15,20 +15,65 @@ import Page12 from "./_components/Page12";
 import Final from "./_components/Final";
 import { useEffect, useState } from "react";
 import LoadingPage from "./_components/LoadingPage";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+function LenisManager({ loading }) {
+  const lenis = useLenis(() => {
+    ScrollTrigger.update();
+  });
+
+  useEffect(() => {
+    if (!loading && lenis) {
+      const refreshAll = () => {
+        lenis.resize();
+        ScrollTrigger.refresh();
+      };
+
+      const t1 = setTimeout(refreshAll, 100);
+      const t2 = setTimeout(refreshAll, 500);
+      const t3 = setTimeout(refreshAll, 1500);
+      const t4 = setTimeout(refreshAll, 3000);
+
+      window.addEventListener("load", refreshAll);
+
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+        clearTimeout(t3);
+        clearTimeout(t4);
+        window.removeEventListener("load", refreshAll);
+      };
+    }
+  }, [loading, lenis]);
+
+  return null;
+}
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
+  // Prevent browser restoring scroll position mid-page on reload
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
+  // Timer for initial loading screen
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 7500);
-    // Cleanup the timeout on component unmount
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <ReactLenis root options={{ lerp: 0.05, duration: 5, smoothTouch: true }}>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}>
+      <LenisManager loading={loading} />
       {loading ? (
         <div>
           <LoadingPage />

@@ -1,9 +1,13 @@
-import React from "react";
-import { useRef } from "react";
+"use client";
+import React, { useRef } from "react";
+import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import StartingRing from "./StartingRing/StartingRing";
+
+const StartingRing = dynamic(() => import("./StartingRing/StartingRing"), {
+  ssr: false,
+});
 gsap.registerPlugin(ScrollTrigger);
 
 const Page1 = () => {
@@ -14,13 +18,14 @@ const Page1 = () => {
       trigger: ".page1",
       start: "top top",
       end: "bottom 50%",
-      onLeave: () => gsap.to(".page1", { background: "#F4BF96", duration: 1 }),
-      onEnterBack: () =>
-        gsap.to(".page1", {
-          background:
-            "radial-gradient(circle at 50% 50%, #fbcbc9, #f6c5c4, #f0bfbf, #ebb9ba, #e5b3b6, #e0adb1, #daa7ac, #d5a2a8, #cf9ca3, #ca969f, #c4919a, #bf8b96)",
-          duration: 1,
-        }),
+      onLeave: () => {
+        gsap.to(".page1", { backgroundColor: "#F4BF96", duration: 1.4, ease: "power2.inOut", overwrite: "auto" });
+        gsap.to(".page1-gradient", { opacity: 0, duration: 1.4, ease: "power2.inOut", overwrite: "auto" });
+      },
+      onEnterBack: () => {
+        gsap.to(".page1", { backgroundColor: "#fbcbc9", duration: 1.4, ease: "power2.inOut", overwrite: "auto" });
+        gsap.to(".page1-gradient", { opacity: 1, duration: 1.4, ease: "power2.inOut", overwrite: "auto" });
+      },
     });
 
     tl.current = gsap
@@ -50,7 +55,8 @@ const Page1 = () => {
   });
 
   return (
-    <div className="page1 text-[#52322B] bg-[radial-gradient(circle_at_50%_50%,_#fbcbc9,_#f6c5c4,_#f0bfbf,_#ebb9ba,_#e5b3b6,_#e0adb1,_#daa7ac,_#d5a2a8,_#cf9ca3,_#ca969f,_#c4919a,_#bf8b96)] min-h-[100vh] w-full relative z-0 ">
+    <div className="page1 text-[#52322B] bg-[#fbcbc9] min-h-[100vh] w-full relative z-0 overflow-hidden ">
+      <div className="page1-gradient absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,_#fbcbc9,_#f6c5c4,_#f0bfbf,_#ebb9ba,_#e5b3b6,_#e0adb1,_#daa7ac,_#d5a2a8,_#cf9ca3,_#ca969f,_#c4919a,_#bf8b96)] z-0" />
       <h1 className=" navh1 z-50 text-[24vw] lg:text-[16vw] absolute left-[10%] top-[15%] font-play tracking-[8px] cursor-pp   ">
         JEWEL
       </h1>

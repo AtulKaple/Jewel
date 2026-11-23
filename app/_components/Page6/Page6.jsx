@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useRef } from 'react'
 import "./page6.css"
-import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,48 +10,56 @@ const Page6 = () => {
   useGSAP(() => {
     ScrollTrigger.create({
       trigger: ".page6",
-      start:'top 50%',
-      end:'bottom 60%',
-      onEnter: () => gsap.to('.page6', {background:'#ED9B7C',duration:1}),
-      onLeave: () => gsap.to('.page6', {background:'#E49BFF',duration:1}),
-      onEnterBack: () => gsap.to('.page6', {background:'#ED9B7C',duration:1}),
-  })
-  })
+      start: 'top 50%',
+      end: 'bottom 60%',
+      onEnter: () =>
+        gsap.to('.page6', {
+          backgroundColor: '#ED9B7C',
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
+      onLeave: () =>
+        gsap.to('.page6', {
+          backgroundColor: '#E49BFF',
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
+      onEnterBack: () =>
+        gsap.to('.page6', {
+          backgroundColor: '#ED9B7C',
+          duration: 1.2,
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
+    });
+
+    gsap.utils.toArray(".slide-row-1").forEach((elem) => {
+      gsap.to(elem, {
+        transform: 'translateX(-50%)',
+        duration: 4,
+        scrollTrigger: {
+          trigger: ".page6",
+          scrub: 5,
+        },
+      });
+    });
+
+    gsap.utils.toArray(".slide-row-2").forEach((elem) => {
+      gsap.to(elem, {
+        transform: 'translateX(0%)',
+        duration: 4,
+        scrollTrigger: {
+          trigger: ".page6",
+          scrub: 5,
+        },
+      });
+    });
+  });
  
 
-    const slide1h1Ref = useRef([]);
-    useEffect(() => {
-        slide1h1Ref.current.forEach((elem) => {
-          gsap.to(elem, {
-            transform: 'translateX(-50%)',
-            duration: 4,
-            scrollTrigger: {
-              trigger: ".page6",
-              scroller: "body",
-              scrub:5,
-              
-            },
-          });
-        });
-    }, []);
 
-
-    
-    const slide22h1Ref = useRef([]);
-    useEffect(() => {
-        slide22h1Ref.current.forEach((elem) => {
-          gsap.to(elem, {
-            transform: 'translateX(0%)',
-            duration: 4,
-            scrollTrigger: {
-              trigger: ".page6",
-              scroller: "body",
-              scrub:5,
-              
-            },
-          },);
-        });
-    }, []);
 
 
 
@@ -64,7 +71,7 @@ const Page6 = () => {
 
   return (
     <div className='page6 text-[#52322B] bg-[#ED9B7C] h-[102vw] lg:h-[62vw]  cursor-default  ' >
-      <div ref={(el) => slide1h1Ref.current.push(el)}  className='ss h-[25vw] lg:h-[15vw] w-[200vw]  overflow-y-hidden flex gap-[0.7vw] '  >
+      <div className='slide-row-1 ss h-[25vw] lg:h-[15vw] w-[200vw]  overflow-y-hidden flex gap-[0.7vw] '  >
         <div className=' w-[26vw] lg:w-[18vw] h-   relative overflow-hidden justify-center cursor-pointer object-cover  '>
         <img  src="Slider/1.1.avif" alt="" className=' absolute  z-50 hover:opacity-0  bg-white ' />
         <img  src="Slider/1.2.avif" alt="" className=' relative w-full object-cover ' />
@@ -111,7 +118,7 @@ const Page6 = () => {
         </div>
       </div>
       {/* /2 */}
-      <div ref={(el) => slide22h1Ref.current.push(el)}   className='ss h-[25vw] lg:h-[15vw] w-[200vw] -translate-x-[45%] lg:-translate-x-[50%]  overflow-y-hidden overflow-x-auto flex mt-[0.7vw] gap-[0.7vw] '  >
+      <div className='slide-row-2 ss h-[25vw] lg:h-[15vw] w-[200vw] -translate-x-[45%] lg:-translate-x-[50%]  overflow-y-hidden overflow-x-auto flex mt-[0.7vw] gap-[0.7vw] '  >
         <div className='hidden lg:flex w-[18vw] h-full   relative overflow-hidden justify-center cursor-pointer object-cover  '>
         <img  src="Slider/33.1.avif" alt="" className=' absolute  z-50 hover:opacity-0  bg-white ' />
         <img  src="Slider/33.2.avif" alt="" className=' relative w-full object-cover ' />
@@ -159,7 +166,7 @@ const Page6 = () => {
       </div>
 
       {/* /3 */}
-      <div ref={(el) => slide1h1Ref.current.push(el)}  className='ss h-[25vw] lg:h-[15vw] w-[200vw]  overflow-y-hidden overflow-x-auto flex mt-[0.7vw] gap-[0.7vw] '  >
+      <div className='slide-row-1 ss h-[25vw] lg:h-[15vw] w-[200vw]  overflow-y-hidden overflow-x-auto flex mt-[0.7vw] gap-[0.7vw] '  >
         <div className='hidden lg:flex w-[18vw] h-full   relative overflow-hidden justify-center cursor-pointer object-cover  '>
         <img  src="Slider/12.1.avif" alt="" className=' absolute  z-50 hover:opacity-0  bg-white ' />
         <img  src="Slider/12.2.avif" alt="" className=' relative w-full object-cover ' />
@@ -206,7 +213,7 @@ const Page6 = () => {
         </div>
       </div>
       {/* /4 */}
-      <div ref={(el) => slide22h1Ref.current.push(el)}   className='ss h-[25vw] lg:h-[15vw] w-[200vw] -translate-x-[50%]  overflow-y-hidden overflow-x-auto flex mt-[0.7vw] pb-[0.7vw]  gap-[0.7vw] '  >
+      <div className='slide-row-2 ss h-[25vw] lg:h-[15vw] w-[200vw] -translate-x-[50%]  overflow-y-hidden overflow-x-auto flex mt-[0.7vw] pb-[0.7vw]  gap-[0.7vw] '  >
         <div className='hidden lg:flex w-[18vw] h-full   relative overflow-hidden justify-center cursor-pointer object-cover  '>
         <img  src="Slider/19.1.avif" alt="" className=' absolute  z-50 hover:opacity-0  bg-white ' />
         <img  src="Slider/19.2.avif" alt="" className=' relative w-full object-cover ' />

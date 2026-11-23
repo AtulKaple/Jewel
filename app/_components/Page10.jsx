@@ -12,23 +12,35 @@ const Page10 = () => {
       end: "bottom 50%",
       onEnter: () =>
         gsap.to(".online", {
-          background: "#81A263",
-          duration: 1,
-          color: "#000",
+          backgroundColor: "#B21337",
+          duration: 1.2,
+          color: "#ffffff",
+          ease: "power2.inOut",
+          overwrite: "auto",
         }),
       onLeave: () =>
-        gsap.to(".online", { background: "#fff", duration: 1, color: "#000" }),
+        gsap.to(".online", {
+          backgroundColor: "#ffffff",
+          duration: 1.2,
+          color: "#000000",
+          ease: "power2.inOut",
+          overwrite: "auto",
+        }),
       onLeaveBack: () =>
         gsap.to(".online", {
-          background: "#A67B5B",
-          duration: 1,
-          color: "#fff",
+          backgroundColor: "#FCF9EA",
+          duration: 1.2,
+          color: "#000000",
+          ease: "power2.inOut",
+          overwrite: "auto",
         }),
       onEnterBack: () =>
         gsap.to(".online", {
-          background: "#81A263",
-          duration: 1,
-          color: "#000",
+          backgroundColor: "#B21337",
+          duration: 1.2,
+          color: "#ffffff",
+          ease: "power2.inOut",
+          overwrite: "auto",
         }),
     });
 
@@ -37,9 +49,8 @@ const Page10 = () => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".online",
-        scroller: "body",
-        start: "top 25%",
-        end: "top 50%",
+        start: "top 70%",
+        end: "top 30%",
         scrub: 3,
       },
     });
@@ -49,9 +60,8 @@ const Page10 = () => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".online",
-        scroller: "body",
-        start: "top 25%",
-        end: "top 50%",
+        start: "top 70%",
+        end: "top 30%",
         scrub: 3,
       },
     });
@@ -60,16 +70,15 @@ const Page10 = () => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".online",
-        scroller: "body",
-        start: "top 25%",
-        end: "top 50%",
+        start: "top 70%",
+        end: "top 30%",
         scrub: 3,
       },
     });
   });
 
   return (
-    <div className="online h-[100vh] w-full bg-[#A67B5B] text-white p-[2vw] flex flex-col lg:flex-row relative">
+    <div className="online h-[100vh] w-full bg-[#FCF9EA] text-white p-[2vw] flex flex-col lg:flex-row relative">
       <img
         src="/piercing.png"
         alt=""
